@@ -155,7 +155,9 @@ You can see how the **traditional models and deep learning models** have restore
 ---
 
 ## Demo video
-![Restoration_by_OpenCV_StableDiffusion](video.mp4)
+
+[![Watch the demo](https://img.youtube.com/vi/MuWb66dsZD8/0.jpg)](https://youtu.be/MuWb66dsZD8)
+
 
 ---
 
