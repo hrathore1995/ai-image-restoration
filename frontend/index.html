@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Restoration</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Image Restoration</h1>
+        <p>Upload a damaged image to restore it automatically.</p>
+
+        <form id="uploadForm">
+            <input type="file" id="fileInput" name="file" accept="image/*" required>
+            <button type="submit" id="restoreBtn">Restore Image</button>
+        </form>
+
+        <!-- Loader -->
+        <div id="loader" class="hidden"></div>
+
+        <div id="result" class="result-container">
+            <h2>Restored Image:</h2>
+            <img id="restoredImage" src="" alt="Restored image will appear here">
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

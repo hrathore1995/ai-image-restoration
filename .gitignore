@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.so
+
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_save
+
+# IDEs/editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Hugging Face / Diffusers cache
+~/.cache/huggingface/
+.cache/
+huggingface/
+
+# Model weights
+models/*.pth
+models/*.bin
+models/*.safetensors
+
+# Temporary files
+temp/
+uploads/
+*.log
+
+# Frontend build 
+node_modules/
+dist/
+build/
+
+# Favicon 
+favicon.ico
+
+#Environment variables
+.env
+
+data/
+y/
+temp/
+uploads/
+outputs/
+masks/
