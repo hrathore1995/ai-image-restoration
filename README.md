@@ -99,15 +99,13 @@ ai_image_restoration/
 We built a **FastAPI-based web app** with a lightweight frontend:
 
 * **Upload damaged image**
-* **Automatic mask generation** (defects detected with OpenCV)
-* **Choose restoration pipeline** (traditional vs deep learning)
+* **Automatic mask generation** (defects detected with Dalle 2)
 * **Get restored output** displayed back in browser
 
 UI Features:
 
 * Loader animation during restoration
 * Disabled button while processing
-* Restored image preview side-by-side with uploaded image
 
 ---
 
@@ -141,20 +139,20 @@ Go to [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 You can see how the **traditional models and deep learning models** have restored images in the provided Jupyter Notebooks.
 
-### Example 1: Small Scratch
-
-**Damaged Image:**
-![Damaged](data/damaged/Ca'_Rezzonico_-_Resurrezione_di_Cristo_(Inv.101)_-_Sebastiano_Ricci_damaged_4.jpg)
+### Restored images
 
 **Traditional (Telea Inpainting):**
+
 ![Traditional](results/traditional/Ca'_Rezzonico_-_Resurrezione_di_Cristo_(Inv.101)_-_Sebastiano_Ricci_telea_4.jpg)
 
 **Deep Learning (Stable Diffusion):**
+
 ![DeepLearning](results/deep/Ca'_Rezzonico_-_Resurrezione_di_Cristo_(Inv.101)_-_Sebastiano_Ricci_sdxl_2.jpg)
 
 ---
 
 ## Demo video
+Click the demo below to watch the demo
 
 [![Watch the demo](https://img.youtube.com/vi/MuWb66dsZD8/0.jpg)](https://youtu.be/MuWb66dsZD8)
 
