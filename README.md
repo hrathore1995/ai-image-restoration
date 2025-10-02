@@ -141,6 +141,9 @@ You can see how the **traditional models and deep learning models** have restore
 
 ### Restored images
 
+**Damaged Image**
+![Damaged_image](Ca'_Rezzonico_-_Resurrezione_di_Cristo_(Inv.101)_-_Sebastiano_Ricci_damaged_4.jpg)
+
 **Traditional (Telea Inpainting):**
 
 ![Traditional](results/traditional/Ca'_Rezzonico_-_Resurrezione_di_Cristo_(Inv.101)_-_Sebastiano_Ricci_telea_4.jpg)
