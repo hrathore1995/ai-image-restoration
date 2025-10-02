@@ -139,7 +139,7 @@ Go to [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 You can see how the **traditional models and deep learning models** have restored images in the provided Jupyter Notebooks.
 
-### Restored images
+### Restoration of damaged images (traditional method vs deep learning)
 
 **Damaged Image**
 ![Damaged_image](Ca'_Rezzonico_-_Resurrezione_di_Cristo_(Inv.101)_-_Sebastiano_Ricci_damaged_4.jpg)
