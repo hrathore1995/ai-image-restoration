@@ -18,7 +18,6 @@ TARGET_SIZE = (512, 512)
 lpips_model = lpips.LPIPS(net='alex').to("cpu") 
 
 def evaluate_one(raw_path, restored_path):
-    """Compute PSNR, SSIM, and LPIPS between raw and restored images."""
     raw = cv2.imread(raw_path)
     restored = cv2.imread(restored_path)
 
