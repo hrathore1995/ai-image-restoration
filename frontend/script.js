@@ -14,7 +14,7 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
     formData.append("file", fileInput.files[0]);
 
     try {
-        // Disable button & show loader
+        
         restoreBtn.disabled = true;
         loader.classList.remove("hidden");
 
@@ -27,7 +27,7 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
             throw new Error("Image restoration failed");
         }
 
-        // Blob response for image
+        
         const blob = await response.blob();
         const imageUrl = URL.createObjectURL(blob);
 
@@ -36,7 +36,7 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
         alert("Error: " + err.message);
         console.error(err);
     } finally {
-        // Enable button & hide loader
+        
         restoreBtn.disabled = false;
         loader.classList.add("hidden");
     }

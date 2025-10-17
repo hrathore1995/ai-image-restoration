@@ -13,10 +13,9 @@ TRAD_RESULTS = "results/traditional"
 DEEP_RESULTS = "results/deep"
 METRICS_OUT = "results/metrics_all.csv"
 
-TARGET_SIZE = (512, 512)  # resize for consistency
+TARGET_SIZE = (512, 512)
 
-# Initialize LPIPS model once (AlexNet backbone is lighter/faster)
-lpips_model = lpips.LPIPS(net='alex').to("cpu")  # you can switch to "mps" if stable
+lpips_model = lpips.LPIPS(net='alex').to("cpu") 
 
 def evaluate_one(raw_path, restored_path):
     """Compute PSNR, SSIM, and LPIPS between raw and restored images."""
@@ -26,15 +25,12 @@ def evaluate_one(raw_path, restored_path):
     if raw is None or restored is None:
         return None, None, None
 
-    # resize both for fairness
     raw = cv2.resize(raw, TARGET_SIZE)
     restored = cv2.resize(restored, TARGET_SIZE)
 
-    # PSNR + SSIM
     psnr_val = psnr(raw, restored, data_range=255)
     ssim_val, _ = ssim(raw, restored, channel_axis=-1, full=True)
 
-    # LPIPS (convert to torch tensors, normalize to [-1,1])
     raw_tensor = torch.from_numpy(raw).permute(2,0,1).unsqueeze(0).float() / 127.5 - 1.0
     restored_tensor = torch.from_numpy(restored).permute(2,0,1).unsqueeze(0).float() / 127.5 - 1.0
     lpips_val = lpips_model(raw_tensor, restored_tensor).item()
@@ -43,19 +39,16 @@ def evaluate_one(raw_path, restored_path):
 
 
 def evaluate_file(filename):
-    """Evaluate Telea, Navier, Stable Diffusion for one damaged file."""
     if "_damaged_" not in filename:
         return None
 
     base_name = filename.split("_damaged_")[0]
 
-    # find raw file (jpg/jpeg/png)
     raw_candidates = [f for f in os.listdir(RAW_DIR) if f.startswith(base_name)]
     if not raw_candidates:
         return None
     raw_file = os.path.join(RAW_DIR, raw_candidates[0])
 
-    # restored versions
     telea_file = os.path.join(TRAD_RESULTS, filename.replace("damaged", "telea"))
     navier_file = os.path.join(TRAD_RESULTS, filename.replace("damaged", "navier"))
     sdxl_file = os.path.join(DEEP_RESULTS, filename.replace("damaged", "sdxl"))

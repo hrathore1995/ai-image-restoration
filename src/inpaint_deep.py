@@ -1,10 +1,3 @@
-"""
-Deep Learning Inpainting
-------------------------
-
-Uses HuggingFace Diffusers Stable Diffusion Inpainting pipeline.
-"""
-
 import torch
 from diffusers import StableDiffusionInpaintPipeline
 import PIL.Image
@@ -17,13 +10,11 @@ RESULTS_DIR = "results/deep"
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 def run_inpainting():
-    # Load pipeline
     pipe = StableDiffusionInpaintPipeline.from_pretrained(
         "runwayml/stable-diffusion-inpainting",
         torch_dtype=torch.float16
     )
 
-    # use Apple MPS backend (Metal)
     if torch.backends.mps.is_available():
         device = "mps"
     else:
@@ -42,19 +33,16 @@ def run_inpainting():
         if not os.path.exists(mask_path):
             continue
 
-        # load images as PIL
         damaged = PIL.Image.open(damaged_path).convert("RGB")
         mask = PIL.Image.open(mask_path).convert("RGB")
 
-        # run pipeline
         result = pipe(prompt="Restore this artwork realistically",
                       image=damaged, mask_image=mask).images[0]
 
-        # save output
         out_name = filename.replace("damaged", "sdxl")
         result.save(os.path.join(RESULTS_DIR, out_name))
 
-        print(f"✅ Restored {filename} with Stable Diffusion")
+        print(f"Restored {filename} with Stable Diffusion")
 
 
 if __name__ == "__main__":

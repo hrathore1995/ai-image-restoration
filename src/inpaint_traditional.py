@@ -1,12 +1,3 @@
-"""
-Traditional Inpainting with OpenCV
-----------------------------------
-
-This script restores damaged paintings using:
-- Telea algorithm
-- Navier-Stokes algorithm
-"""
-
 import cv2
 import os
 
@@ -39,15 +30,13 @@ def process_all_images():
             if not os.path.exists(mask_path):
                 continue
 
-            # Telea
             telea_restored = inpaint_image(damaged_path, mask_path, "telea")
             cv2.imwrite(os.path.join(RESULTS_DIR, filename.replace("damaged", "telea")), telea_restored)
 
-            # Navier-Stokes
             ns_restored = inpaint_image(damaged_path, mask_path, "ns")
             cv2.imwrite(os.path.join(RESULTS_DIR, filename.replace("damaged", "navier")), ns_restored)
 
-            print(f"✅ Processed {filename}")
+            print(f"Processed {filename}")
 
 
 if __name__ == "__main__":
